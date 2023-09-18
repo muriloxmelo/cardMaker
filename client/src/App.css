@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;600&display=swap" rel');
+
+@font-face {
+  font-family: "yugiCardTitle";
+  src: url("./Assets/fonts/YuGiOhMatrixRegularSmallCaps.ttf") format("truetype");
+}
+@font-face {
+  font-family: "yugiCardType";
+  src: url("./Assets/fonts/YuGiOhITCStoneSerifSmallCapsBold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "yugiCardDesc";
+  src: url("./Assets/fonts/YuGiOhITCStoneSerifLTItalic.ttf") format("truetype");
+}
+
+:root {
+  --cordoida: #748;
+
+  /* // Sand Dark */
+  --sand-1: hsl(60, 6%, 9%);
+  --sand-2: hsl(60, 1.9%, 10.4%);
+  --sand-3: hsl(56, 2.4%, 15.4%);
+  --sand-4: hsl(53, 2.7%, 18.4%);
+  --sand-5: hsl(51, 2.9%, 21.2%);
+  --sand-6: hsl(49, 3.1%, 24.3%);
+  --sand-7: hsl(47, 3.3%, 28.7%);
+  --sand-8: hsl(43, 3.7%, 37.1%);
+  --sand-9: hsl(50, 4%, 41.8%);
+  --sand-10: hsl(48, 3.5%, 49.5%);
+  --sand-11: hsl(50, 5%, 68.3%);
+  --sand-12: hsl(56, 7%, 93%);
+
+  /* Amber */
+
+  --amber-1: hsl(39, 70%, 99%);
+  --amber-2: hsl(40, 100%, 96.5%);
+  --amber-3: hsl(45, 100%, 90.8%);
+  --amber-4: hsl(44, 100%, 85.8%);
+  --amber-5: hsl(40, 100%, 81.5%);
+  --amber-6: hsl(39, 83.6%, 75.4%);
+  --amber-7: hsl(37, 66.9%, 68.2%);
+  --amber-8: hsl(35, 59.8%, 60%);
+  --amber-9: hsl(42, 100%, 62%);
+  --amber-10: hsl(42, 100%, 55%);
+  --amber-11: hsl(25, 50%, 38%);
+  --amber-12: hsl(25, 40%, 22%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+/* Coloquei várias coisas aqui */
+body {
+  --fontF-1: "Inter", sans-serif;
+  --fontF-2: "Poppins", sans-serif;
+  font-family: var(--fontF-1);
+  padding-top: 4rem;
+  background: var(--sand-2);
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+button,
+input {
+  display: block;
+  font-family: "Inter";
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.containerCard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(345px, 8fr));
+  gap: 2rem;
+  grid-template-rows: max-content;
+  padding-top: 4rem;
+}

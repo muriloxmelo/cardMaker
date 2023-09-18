@@ -1,0 +1,40 @@
+.label {
+  display: block;
+  color: var(--sand-12);
+  padding-bottom: 0.5rem;
+  font-family: var(--fontF-2);
+}
+
+.input {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  color: var(--sand-12);
+  padding: 0.8rem;
+  box-shadow: inset 0 0 0 1px var(--sand-7);
+  background: var(--sand-2);
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.input:hover,
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--amber-8);
+}
+
+.input:disabled {
+  box-shadow: inset 0 0 0 1px var(--sand-6);
+  opacity: 0.3;
+}
+
+.input:disabled:hover {
+  box-shadow: inset 0 0 0 1px var(--sand-6);
+  cursor: initial;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

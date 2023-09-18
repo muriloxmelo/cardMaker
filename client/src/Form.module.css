@@ -1,0 +1,11 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background: var(--sand-3);
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--sand-6);
+  /* Aqui muda o posicionamento pro inicio */
+  place-content: start;
+}
