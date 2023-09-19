@@ -8,8 +8,8 @@ import "./App.css";
 const App = () => {
   return (
     <div>
+      <Header />
       <GlobalStorage>
-        <Header />
         <main className="container containerCard">
           <CardComponent />
           <FormDoido />

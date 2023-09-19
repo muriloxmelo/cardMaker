@@ -4,6 +4,7 @@ import Input from "./Components/Forms/Input";
 import useForm from "./hooks/useForm";
 import styles from "./Form.module.css";
 import SelectInput from "./Components/Forms/SelectInput";
+import Button from "./Components/Forms/Button";
 
 const FormDoido = () => {
   const {
@@ -27,13 +28,7 @@ const FormDoido = () => {
 
   return (
     <form className={styles.form}>
-      <Input
-        placeholder="Blue-Eyes White Dragon"
-        maxLength={35}
-        label="Name"
-        name="name"
-        {...cardName}
-      />
+      <Input label="Picture" name="picture" type="file" />
       <SelectInput
         label="Card Type"
         name="cardtype"
@@ -41,6 +36,14 @@ const FormDoido = () => {
         value={cardType}
         setValue={setCardType}
       />
+      <Input
+        placeholder="Blue-Eyes White Dragon"
+        maxLength={35}
+        label="Name"
+        name="name"
+        {...cardName}
+      />
+
       {cardType === "Monster" ? (
         <>
           <Input
@@ -64,22 +67,24 @@ const FormDoido = () => {
             value={atributo}
             setValue={setAtributo}
           />
-          <Input
-            placeholder="3000"
-            maxLength={5}
-            label="ATK"
-            name="atk"
-            type="text"
-            {...cardATK}
-          />
-          <Input
-            placeholder="2500"
-            maxLength={5}
-            label="DEF"
-            name="def"
-            type="text"
-            {...cardDEF}
-          />
+          <div className={styles.atkDef}>
+            <Input
+              placeholder="3000"
+              maxLength={5}
+              label="ATK"
+              name="atk"
+              type="text"
+              {...cardATK}
+            />
+            <Input
+              placeholder="2500"
+              maxLength={5}
+              label="DEF"
+              name="def"
+              type="text"
+              {...cardDEF}
+            />
+          </div>
         </>
       ) : (
         <>
@@ -90,21 +95,25 @@ const FormDoido = () => {
             disabled={true}
             options={["Light", "Dark", "Earth", "Divine", "Fire"]}
           />
-          <Input placeholder="3000" disabled={true} label="ATK" type="text" />
-          <Input placeholder="2500" disabled={true} label="DEF" type="text" />
+          <div className={styles.atkDef}>
+            <Input placeholder="3000" disabled={true} label="ATK" type="text" />
+            <Input placeholder="2500" disabled={true} label="DEF" type="text" />
+          </div>
         </>
       )}
 
-      <Input
-        className={styles.cacaro}
-        maxLength={215}
-        placeholder="This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.
+      <div className={styles.Desc}>
+        <Input
+          maxLength={215}
+          placeholder="This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.
         "
-        label="Description"
-        name="description"
-        type="textarea"
-        {...cardDesc}
-      />
+          label="Description"
+          name="description"
+          type="textarea"
+          {...cardDesc}
+        />
+      </div>
+      <Button className={styles.buttonInsideForm} />
     </form>
   );
 };
