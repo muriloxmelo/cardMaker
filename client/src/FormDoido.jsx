@@ -5,6 +5,8 @@ import useForm from "./hooks/useForm";
 import styles from "./Form.module.css";
 import SelectInput from "./Components/Forms/SelectInput";
 import Button from "./Components/Forms/Button";
+import html2canvas from "html2canvas";
+import CardComponent from "./Components/CardMaker/CardComponent";
 
 const FormDoido = () => {
   const {
@@ -26,8 +28,22 @@ const FormDoido = () => {
   const cardDEF = useForm("number", setDef);
   const cardDesc = useForm("", setDesc);
 
+  const carta = document.querySelector("#cartaDiv");
+
+  function exportImage() {
+    html2canvas(carta).then((canvas) => {
+      document.body.appendChild(canvas);
+    });
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("oi");
+    exportImage();
+  }
+
   return (
-    <form className={styles.form}>
+    <form onSubmit={handleClick} className={styles.form}>
       <Input label="Picture" name="picture" type="file" />
       <SelectInput
         label="Card Type"

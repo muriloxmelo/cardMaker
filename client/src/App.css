@@ -15,7 +15,7 @@
 }
 
 :root {
-  --cordoida: #748;
+  --colorError: hsl(359, 84.8%, 67.6%);
 
   /* // Sand Dark */
   --sand-1: hsl(60, 6%, 9%);

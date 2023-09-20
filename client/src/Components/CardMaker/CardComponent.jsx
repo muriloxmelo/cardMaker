@@ -80,7 +80,7 @@ const CardComponent = () => {
   }, [cardType, setBgcolor, setTitleColor, setStarsValue, setAttributeImg]);
 
   return (
-    <div className={styles.bg1}>
+    <div id="cartaDiv" className={styles.bg1}>
       <div style={{ backgroundColor: `${bgcolor}` }} className={styles.bg2}>
         <div className={styles.cardLayer}>
           <div className={styles.cardTitle}>

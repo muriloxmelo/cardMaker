@@ -15,6 +15,7 @@
   background: var(--sand-2);
   border-radius: 4px;
   transition: 0.2s;
+  font-family: var(--fontF-1);
 }
 
 .input:hover,
@@ -34,7 +35,7 @@
 }
 
 .error {
-  color: red;
+  color: var(--colorError);
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
@@ -57,6 +58,8 @@
   border-radius: 4px;
   cursor: pointer;
   min-height: 46px;
+  color: var(--amber-12);
+  font-family: var(--fontF-1);
 }
 
 .input[type="file"]::file-selector-button:hover {

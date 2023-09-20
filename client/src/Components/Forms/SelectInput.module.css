@@ -16,6 +16,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: 0.2s;
+  font-family: var(--fontF-1);
 }
 
 .select:hover,
@@ -32,4 +33,21 @@
 .select:disabled:hover {
   box-shadow: inset 0 0 0 1px var(--sand-6);
   cursor: initial;
+}
+
+.select:hover option {
+  background-color: darkgreen;
+}
+
+.option {
+  color: black;
+  background-color: red;
+}
+
+.option:checked {
+  color: blueviolet;
+}
+
+.select.decorated option {
+  background-color: red;
 }

@@ -27,7 +27,7 @@ const SelectInput = ({
           Selecione
         </option>
         {options.map((option) => (
-          <option key={option} value={option}>
+          <option className={styles.option} key={option} value={option}>
             {option}
           </option>
         ))}

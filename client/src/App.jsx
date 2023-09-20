@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <Header />
+
       <GlobalStorage>
         <main className="container containerCard">
           <CardComponent />
