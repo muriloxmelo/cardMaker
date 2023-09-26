@@ -4,6 +4,7 @@
   width: 100vw;
   top: 0;
   box-shadow: 0 1px var(--sand-6);
+  z-index: 1000;
 }
 
 .nav {

@@ -119,4 +119,5 @@ input {
   grid-template-rows: max-content;
   padding-top: 4rem;
   align-items: start;
+  justify-items: center;
 }

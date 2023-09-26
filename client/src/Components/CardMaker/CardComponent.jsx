@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./CardComponent.module.css";
-import cardFile from "../../Assets/dbazuis.png";
 import StarIMG from "./StarIMG";
 import { GlobalContext } from "../../GlobalContext";
 import attributeLight from "../../Assets/attributesLight.svg";
@@ -25,6 +24,7 @@ const CardComponent = () => {
     starsValue,
     setStarsValue,
     cardType,
+    cardImg,
   } = React.useContext(GlobalContext);
 
   // Stars
@@ -104,8 +104,9 @@ const CardComponent = () => {
           </div>
 
           <div className={styles.cardFile}>
-            <img src={cardFile} alt="" />
+            <img src={cardImg} alt="YuGiOh Card Image" />
           </div>
+
           <div className={styles.cardDesc}>
             {stars.length === 0 ? null : <h3>[{type}]</h3>}
             <p className={styles.cardDescText}>{desc}</p>

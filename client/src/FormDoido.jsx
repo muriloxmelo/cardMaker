@@ -3,9 +3,9 @@ import { GlobalContext } from "./GlobalContext";
 import Input from "./Components/Forms/Input";
 import useForm from "./hooks/useForm";
 import styles from "./Form.module.css";
+import inputStyles from "../src/Components/Forms/Input.module.css";
 import SelectInput from "./Components/Forms/SelectInput";
 import Button from "./Components/Forms/Button";
-import html2canvas from "html2canvas";
 import domtoimage from "dom-to-image";
 
 const FormDoido = () => {
@@ -21,38 +21,51 @@ const FormDoido = () => {
     setAtributo,
     cardType,
     setCardType,
+    cardImg,
+    setCardImg,
   } = React.useContext(GlobalContext);
   const cardName = useForm("", setName);
   const monsterType = useForm("", setType);
   const cardATK = useForm("number", setAtk);
   const cardDEF = useForm("number", setDef);
   const cardDesc = useForm("", setDesc);
+  const [img, setImg] = React.useState({});
 
   const carta = document.querySelector("#cartaDiv");
 
-  function exportImage() {
-    domtoimage
-      .toPng(carta)
-      .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
-        console.log("maluco");
-      })
-      .catch(function (error) {
-        console.error("oops, something went wrong!", error);
-      });
+  function downloadImage(e) {
+    e.preventDefault();
+    domtoimage.toJpeg(carta, { quality: 0.95 }).then(function (dataUrl) {
+      var link = document.createElement("a");
+      link.download = `CardMaker-${Date.now()}.jpeg`;
+      link.href = dataUrl;
+      link.click();
+    });
   }
 
-  function handleClick(e) {
-    e.preventDefault();
-    console.log("oi");
-    exportImage();
+  function handleImgChange({ target }) {
+    setImg({
+      preview: URL.createObjectURL(target.files[0]),
+      raw: target.files[0],
+    });
+    setCardImg(URL.createObjectURL(target.files[0]));
   }
 
   return (
-    <form onSubmit={handleClick} className={styles.form}>
-      <Input label="Picture" name="picture" type="file" />
+    <form className={styles.form}>
+      <div>
+        <label className={inputStyles.label} htmlFor="picture">
+          Picture
+        </label>
+        <input
+          onChange={handleImgChange}
+          className={inputStyles.input}
+          id="picture"
+          type="file"
+          accept=".jpeg, .png, .jpg"
+        />
+      </div>
+
       <SelectInput
         label="Card Type"
         name="cardtype"
@@ -137,7 +150,9 @@ const FormDoido = () => {
           {...cardDesc}
         />
       </div>
-      <Button className={styles.buttonInsideForm} />
+      <div>
+        <button onClick={downloadImage}>download</button>
+      </div>
     </form>
   );
 };

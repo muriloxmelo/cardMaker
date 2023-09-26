@@ -1,4 +1,5 @@
 import React from "react";
+import cardFile from "../src/Assets/dbazuis.png";
 
 export const GlobalContext = React.createContext();
 
@@ -13,6 +14,9 @@ export const GlobalStorage = ({ children }) => {
   const [starsValue, setStarsValue] = React.useState(7);
   const [atributo, setAtributo] = React.useState("Light");
   const [cardType, setCardType] = React.useState("Monster");
+  // Card File Image
+  const [cardImg, setCardImg] = React.useState(cardFile);
+  console.log(cardImg);
 
   return (
     <GlobalContext.Provider
@@ -33,6 +37,8 @@ export const GlobalStorage = ({ children }) => {
         setAtributo,
         cardType,
         setCardType,
+        cardImg,
+        setCardImg,
       }}
     >
       {children}
