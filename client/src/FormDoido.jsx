@@ -6,7 +6,7 @@ import styles from "./Form.module.css";
 import SelectInput from "./Components/Forms/SelectInput";
 import Button from "./Components/Forms/Button";
 import html2canvas from "html2canvas";
-import CardComponent from "./Components/CardMaker/CardComponent";
+import domtoimage from "dom-to-image";
 
 const FormDoido = () => {
   const {
@@ -31,9 +31,17 @@ const FormDoido = () => {
   const carta = document.querySelector("#cartaDiv");
 
   function exportImage() {
-    html2canvas(carta).then((canvas) => {
-      document.body.appendChild(canvas);
-    });
+    domtoimage
+      .toPng(carta)
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+        console.log("maluco");
+      })
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      });
   }
 
   function handleClick(e) {
