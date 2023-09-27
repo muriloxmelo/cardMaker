@@ -52,7 +52,7 @@ const FormDoido = () => {
   }
 
   return (
-    <form className={styles.form}>
+    <form onSubmit={downloadImage} className={styles.form}>
       <div>
         <label className={inputStyles.label} htmlFor="picture">
           Picture
@@ -150,8 +150,8 @@ const FormDoido = () => {
           {...cardDesc}
         />
       </div>
-      <div>
-        <button onClick={downloadImage}>download</button>
+      <div className={styles.buttonDownload}>
+        <Button>Download</Button>
       </div>
     </form>
   );

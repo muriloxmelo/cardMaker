@@ -20,16 +20,15 @@ form div:first-child,
   gap: 0.5rem;
 }
 
-.form button {
-  background-color: red;
-  grid-column: 2;
-  place-self: end;
+.buttonDownload {
+  grid-column: 1;
+  justify-self: start;
 }
 
 .form div input,
 .form div select {
-  max-height: 46px;
-  min-height: 46px;
+  max-height: 48px;
+  min-height: 48px;
 }
 
 .label {

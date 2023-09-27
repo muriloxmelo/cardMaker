@@ -16,7 +16,6 @@ export const GlobalStorage = ({ children }) => {
   const [cardType, setCardType] = React.useState("Monster");
   // Card File Image
   const [cardImg, setCardImg] = React.useState(cardFile);
-  console.log(cardImg);
 
   return (
     <GlobalContext.Provider
