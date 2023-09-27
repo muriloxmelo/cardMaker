@@ -104,7 +104,10 @@ const CardComponent = () => {
           </div>
 
           <div className={styles.cardFile}>
-            <img src={cardImg} alt="YuGiOh Card Image" />
+            <div
+              className={styles.cardImgPreview}
+              style={{ backgroundImage: `url('${cardImg}')` }}
+            ></div>
           </div>
 
           <div className={styles.cardDesc}>
