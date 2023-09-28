@@ -12,3 +12,31 @@
   align-items: center;
   height: 4rem;
 }
+
+.nav a {
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoTitle {
+  display: grid;
+}
+
+.logoTitle img {
+  grid-area: 1/-1;
+  place-self: center center;
+}
+
+.logoTitle span {
+  grid-area: 1/-1;
+  font-family: "yugiCardTitle";
+  font-size: 48px;
+  color: white;
+  place-self: center center;
+  text-shadow: 2px 2px 2px #1e1e1e;
+}

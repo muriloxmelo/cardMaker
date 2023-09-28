@@ -48,36 +48,53 @@ const FormDoido = () => {
   function saveCard(e) {
     e.preventDefault();
 
-    const formData = new FormData();
-    if (cardType !== "Monster") {
-      formData.append("name", cardName.value);
-      formData.append("cardType", cardType);
-      formData.append("attribute", atributo);
-      formData.append("cardPicture", img.raw);
-      formData.append("description", cardDesc.value);
-    } else {
-      formData.append("name", cardName.value);
-      formData.append("cardType", cardType);
-      formData.append("attribute", atributo);
-      formData.append("cardPicture", img.raw);
-      formData.append("description", cardDesc.value);
-      formData.append("monsterType", monsterType.value);
-      formData.append("monsterLevel", starsValue);
-      formData.append("monsterAtk", cardATK.value);
-      formData.append("monsterDef", cardDEF.value);
-    }
+    const domToImagePromise = new Promise(function (resolve, reject) {
+      domtoimage
+        .toJpeg(carta)
+        .then(function (dataUrl) {
+          setImg({
+            raw: dataUrl,
+          });
+          console.log(img.raw);
+          resolve();
+        })
+        .catch(function (error) {
+          console.error("oops, something went wrong!", error);
+          reject(error);
+        });
+    });
 
-    const { url, options } = CARD_POST(formData);
-    request(url, options);
+    domToImagePromise.then(function () {
+      const formData = new FormData();
+      if (
+        cardName.validate() &&
+        monsterType.validate() &&
+        cardDesc.validate() &&
+        cardType !== "Monster"
+      ) {
+        formData.append("name", cardName.value);
+        formData.append("monsterType", monsterType.value);
+        formData.append("cardType", cardType);
+        formData.append("cardPicture", img.raw);
+        formData.append("description", cardDesc.value);
+      } else {
+        formData.append("name", cardName.value);
+        formData.append("cardType", cardType);
+        formData.append("attribute", atributo);
+        formData.append("cardPicture", img.raw);
+        formData.append("description", cardDesc.value);
+        formData.append("monsterType", monsterType.value);
+        formData.append("monsterLevel", starsValue);
+        formData.append("monsterAtk", cardATK.value);
+        formData.append("monsterDef", cardDEF.value);
+      }
+
+      const { url, options } = CARD_POST(formData);
+      request(url, options);
+    });
   }
 
-  console.log(cardType);
-
   function handleImgChange({ target }) {
-    setImg({
-      preview: URL.createObjectURL(target.files[0]),
-      raw: target.files[0],
-    });
     setCardImg(URL.createObjectURL(target.files[0]));
   }
 
@@ -95,6 +112,9 @@ const FormDoido = () => {
           type="file"
           accept=".jpeg, .png, .jpg"
         />
+        {error === `Cannot read properties of undefined (reading 'path')` && (
+          <p className={styles.error}>Selecione uma imagem</p>
+        )}
       </div>
 
       <SelectInput
