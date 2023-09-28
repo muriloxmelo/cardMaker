@@ -5,9 +5,9 @@ mongoose.set("strictQuery", true);
 
 async function connect() {
   await mongoose.connect(
-    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@clustermovies0.8von5s6.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0cardmaker.i2f0ewk.mongodb.net/?retryWrites=true&w=majority`
   );
-  console.log("Banco de Dados conectado");
+  console.log("Database connected succesfully!");
 }
 
 connect().catch((error) => console.log(error));

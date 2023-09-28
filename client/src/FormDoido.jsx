@@ -5,8 +5,10 @@ import useForm from "./hooks/useForm";
 import styles from "./Form.module.css";
 import inputStyles from "../src/Components/Forms/Input.module.css";
 import SelectInput from "./Components/Forms/SelectInput";
-import Button from "./Components/Forms/Button";
+
 import domtoimage from "dom-to-image";
+import useFetch from "./hooks/useFetch";
+import { CARD_POST } from "../api";
 
 const FormDoido = () => {
   const {
@@ -30,10 +32,10 @@ const FormDoido = () => {
   const cardDEF = useForm("number", setDef);
   const cardDesc = useForm("", setDesc);
   const [img, setImg] = React.useState({});
-
+  const { request, data, error, loading } = useFetch();
   const carta = document.querySelector("#cartaDiv");
 
-  function downloadImage(e) {
+  function handleDownloadClick(e) {
     e.preventDefault();
     domtoimage.toJpeg(carta, { quality: 0.95 }).then(function (dataUrl) {
       var link = document.createElement("a");
@@ -42,6 +44,34 @@ const FormDoido = () => {
       link.click();
     });
   }
+
+  function saveCard(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    if (cardType !== "Monster") {
+      formData.append("name", cardName.value);
+      formData.append("cardType", cardType);
+      formData.append("attribute", atributo);
+      formData.append("cardPicture", img.raw);
+      formData.append("description", cardDesc.value);
+    } else {
+      formData.append("name", cardName.value);
+      formData.append("cardType", cardType);
+      formData.append("attribute", atributo);
+      formData.append("cardPicture", img.raw);
+      formData.append("description", cardDesc.value);
+      formData.append("monsterType", monsterType.value);
+      formData.append("monsterLevel", starsValue);
+      formData.append("monsterAtk", cardATK.value);
+      formData.append("monsterDef", cardDEF.value);
+    }
+
+    const { url, options } = CARD_POST(formData);
+    request(url, options);
+  }
+
+  console.log(cardType);
 
   function handleImgChange({ target }) {
     setImg({
@@ -52,7 +82,7 @@ const FormDoido = () => {
   }
 
   return (
-    <form onSubmit={downloadImage} className={styles.form}>
+    <form onSubmit={saveCard} className={styles.form}>
       <div>
         <label className={inputStyles.label} htmlFor="picture">
           Picture
@@ -61,6 +91,7 @@ const FormDoido = () => {
           onChange={handleImgChange}
           className={inputStyles.input}
           id="picture"
+          name="cardPicture"
           type="file"
           accept=".jpeg, .png, .jpg"
         />
@@ -68,7 +99,7 @@ const FormDoido = () => {
 
       <SelectInput
         label="Card Type"
-        name="cardtype"
+        name="cardType"
         options={["Monster", "Spell", "Trap"]}
         value={cardType}
         setValue={setCardType}
@@ -87,12 +118,12 @@ const FormDoido = () => {
             placeholder="Dragon"
             maxLength={18}
             label="Monster Type"
-            name="monstertype"
+            name="monsterType"
             {...monsterType}
           />
           <SelectInput
             label="Level"
-            name="level"
+            name="monsterLevel"
             options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
             value={starsValue}
             setValue={setStarsValue}
@@ -109,7 +140,7 @@ const FormDoido = () => {
               placeholder="3000"
               maxLength={5}
               label="ATK"
-              name="atk"
+              name="monsterAtk"
               type="text"
               {...cardATK}
             />
@@ -117,7 +148,7 @@ const FormDoido = () => {
               placeholder="2500"
               maxLength={5}
               label="DEF"
-              name="def"
+              name="monsterDef"
               type="text"
               {...cardDEF}
             />
@@ -151,7 +182,11 @@ const FormDoido = () => {
         />
       </div>
       <div className={styles.buttonDownload}>
-        <Button>Download</Button>
+        <button className="button">Salvar</button>
+
+        <button className="button download" onClick={handleDownloadClick}>
+          Download
+        </button>
       </div>
     </form>
   );

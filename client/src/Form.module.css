@@ -21,8 +21,13 @@ form div:first-child,
 }
 
 .buttonDownload {
-  grid-column: 1;
-  justify-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form .buttonDownload {
+  grid-column: 1/3;
 }
 
 .form div input,

@@ -17,6 +17,19 @@
 :root {
   --colorError: hsl(359, 84.8%, 67.6%);
 
+  --grass-1: hsl(146, 30%, 7.4%);
+  --grass-2: hsl(138, 20.8%, 9.4%);
+  --grass-3: hsl(138, 25.8%, 12.5%);
+  --grass-4: hsl(138, 28.4%, 14.8%);
+  --grass-5: hsl(137, 30.3%, 17.1%);
+  --grass-6: hsl(137, 32.3%, 20.6%);
+  --grass-7: hsl(135, 34.4%, 27.1%);
+  --grass-8: hsl(131, 35.3%, 40%);
+  --grass-9: hsl(131, 41%, 46.5%);
+  --grass-10: hsl(131, 41.7%, 55%);
+  --grass-11: hsl(131, 50%, 63%);
+  --grass-12: hsl(120, 60%, 85%);
+
   /* // Sand Dark */
   --sand-1: hsl(60, 6%, 9%);
   --sand-2: hsl(60, 1.9%, 10.4%);
@@ -120,4 +133,47 @@ input {
   padding-top: 4rem;
   align-items: start;
   justify-items: center;
+}
+
+.button {
+  margin-top: 2rem;
+  background: var(--amber-10);
+  font-family: "Poppins";
+  font-weight: 600;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--amber-12);
+  max-width: max-content;
+}
+
+.button:hover,
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sand-3), 0 0 0 4px var(--amber-10);
+  background: var(--amber-9);
+}
+
+.button.download {
+  background-color: var(--grass-9);
+  color: var(--grass-3);
+  display: flex;
+  align-items: center;
+}
+
+.button.download::before {
+  content: "";
+  display: inline-block;
+  background: url(./Assets//Download.svg);
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+}
+
+.button.download:hover,
+.button.download:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sand-3), 0 0 0 4px var(--grass-10);
+  background: var(--grass-10);
 }
