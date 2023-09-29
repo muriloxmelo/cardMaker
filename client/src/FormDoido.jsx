@@ -31,7 +31,6 @@ const FormDoido = () => {
   const cardATK = useForm("number", setAtk);
   const cardDEF = useForm("number", setDef);
   const cardDesc = useForm("", setDesc);
-  const [img, setImg] = React.useState({});
   const { request, data, error, loading } = useFetch();
   const carta = document.querySelector("#cartaDiv");
 
@@ -45,53 +44,56 @@ const FormDoido = () => {
     });
   }
 
-  function saveCard(e) {
+  async function saveCard(e) {
     e.preventDefault();
 
-    const domToImagePromise = new Promise(function (resolve, reject) {
-      domtoimage
-        .toJpeg(carta)
-        .then(function (dataUrl) {
-          setImg({
-            raw: dataUrl,
-          });
-          console.log(img.raw);
-          resolve();
-        })
-        .catch(function (error) {
-          console.error("oops, something went wrong!", error);
-          reject(error);
+    if (
+      cardName.validate() &&
+      monsterType.validate() &&
+      cardDesc.validate() &&
+      cardType !== "Monster"
+    ) {
+      try {
+        const dataUrl = await domtoimage.toJpeg(carta, { quality: 0.5 });
+
+        console.log(dataUrl);
+
+        const { url, options } = CARD_POST({
+          name: cardName.value,
+          cardType: cardType,
+          attribute: atributo,
+          description: cardDesc.value,
+          src: dataUrl,
         });
-    });
 
-    domToImagePromise.then(function () {
-      const formData = new FormData();
-      if (
-        cardName.validate() &&
-        monsterType.validate() &&
-        cardDesc.validate() &&
-        cardType !== "Monster"
-      ) {
-        formData.append("name", cardName.value);
-        formData.append("monsterType", monsterType.value);
-        formData.append("cardType", cardType);
-        formData.append("cardPicture", img.raw);
-        formData.append("description", cardDesc.value);
-      } else {
-        formData.append("name", cardName.value);
-        formData.append("cardType", cardType);
-        formData.append("attribute", atributo);
-        formData.append("cardPicture", img.raw);
-        formData.append("description", cardDesc.value);
-        formData.append("monsterType", monsterType.value);
-        formData.append("monsterLevel", starsValue);
-        formData.append("monsterAtk", cardATK.value);
-        formData.append("monsterDef", cardDEF.value);
+        await request(url, options);
+      } catch (err) {
+        console.log(err);
       }
+    } else {
+      try {
+        const dataUrl = await domtoimage.toJpeg(carta, { quality: 0.5 });
 
-      const { url, options } = CARD_POST(formData);
-      request(url, options);
-    });
+        console.log("MONSTER");
+        console.log(dataUrl);
+
+        const { url, options } = CARD_POST({
+          name: cardName.value,
+          cardType: cardType,
+          attribute: atributo,
+          description: cardDesc.value,
+          src: dataUrl,
+          monsterType: monsterType.value,
+          monsterLevel: starsValue,
+          monsterAtk: cardATK.value,
+          monsterDef: cardDEF.value,
+        });
+
+        await request(url, options);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
 
   function handleImgChange({ target }) {
@@ -112,9 +114,6 @@ const FormDoido = () => {
           type="file"
           accept=".jpeg, .png, .jpg"
         />
-        {error === `Cannot read properties of undefined (reading 'path')` && (
-          <p className={styles.error}>Selecione uma imagem</p>
-        )}
       </div>
 
       <SelectInput

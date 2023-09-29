@@ -9,7 +9,7 @@ const Card = new mongoose.Schema({
   monsterAtk: { type: Number },
   monsterDef: { type: Number },
   description: { type: String, required: true },
-  src: { type: String, required: true },
+  src: { type: String },
 });
 
 const CardSchema = mongoose.model("Card", Card);

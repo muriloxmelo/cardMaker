@@ -11,8 +11,8 @@ exports.CARD_CREAT = async (req, res) => {
       monsterAtk,
       monsterDef,
       description,
+      src,
     } = req.body;
-    const cardPicture = req.file;
 
     const card = new Card({
       name,
@@ -23,9 +23,10 @@ exports.CARD_CREAT = async (req, res) => {
       monsterDef,
       monsterLevel,
       description,
-      src: cardPicture.path,
+      src,
     });
 
+    // const decodedImage = Buffer.from(src, "base64");
     await card.save();
 
     res.json({ card, status: "Card Saved!" });
