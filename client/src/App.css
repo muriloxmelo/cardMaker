@@ -164,7 +164,7 @@ input {
 .button.download::before {
   content: "";
   display: inline-block;
-  background: url(./Assets//Download.svg);
+  background: url(./Assets/Download.svg);
   width: 25px;
   height: 25px;
   margin-right: 8px;
