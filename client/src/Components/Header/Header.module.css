@@ -11,6 +11,8 @@
   display: flex;
   align-items: center;
   height: 4rem;
+  justify-content: space-between;
+  justify-self: start;
 }
 
 .nav a {
@@ -39,4 +41,24 @@
   color: white;
   place-self: center center;
   text-shadow: 2px 2px 2px #1e1e1e;
+}
+
+.div__headerButton {
+  display: flex;
+  gap: 1rem;
+}
+
+.headerButton {
+  background-color: var(--sand-3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: "Inter";
+  font-size: 1.2rem;
+  color: var(--sand-11);
+  gap: 1rem;
+}
+
+.headerButton:hover {
+  background-color: var(--sand-4);
+  color: var(--sand-12);
 }
