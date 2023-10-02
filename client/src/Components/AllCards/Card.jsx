@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { CARD_GET_ID } from "../../../api";
 import { useParams } from "react-router-dom";
+import CardDeleteBtn from "./CardDeleteBtn";
 
 const Card = () => {
   const { request, data, loading, error } = useFetch();
@@ -23,6 +24,7 @@ const Card = () => {
           <h3>
             ATK / DEF: {data.monsterAtk} / {data.monsterDef}
           </h3>
+          <CardDeleteBtn id={data._id} />
         </div>
       </section>
     );

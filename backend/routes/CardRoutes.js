@@ -6,4 +6,5 @@ const cardController = require("../controllers/CardController");
 router.post("/", cardController.CARD_CREAT);
 router.get("/", cardController.GET_CARDS);
 router.get("/:id", cardController.GET_CARDS_by_ID);
+router.delete("/:id", cardController.DELETE_CARDS_by_ID);
 module.exports = router;

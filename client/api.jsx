@@ -36,3 +36,15 @@ export function CARD_GET_ID(id) {
     },
   };
 }
+
+export function CARD_DELETE_ID(id) {
+  return {
+    url: `${API_URL}/cards/${id}`,
+    options: {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  };
+}

@@ -53,3 +53,15 @@ exports.GET_CARDS_by_ID = async (req, res) => {
     res.status(500).json({ status: "error", message: error.message });
   }
 };
+
+exports.DELETE_CARDS_by_ID = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Cards.findByIdAndDelete(id);
+    res
+      .status(200)
+      .json({ status: "ok", message: "card deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
