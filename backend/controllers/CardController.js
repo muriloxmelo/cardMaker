@@ -1,4 +1,4 @@
-const Card = require("../models/Card.js");
+const Cards = require("../models/Card.js");
 
 exports.CARD_CREAT = async (req, res) => {
   try {
@@ -14,7 +14,7 @@ exports.CARD_CREAT = async (req, res) => {
       src,
     } = req.body;
 
-    const card = new Card({
+    const card = new Cards({
       name,
       cardType,
       attribute,
@@ -30,6 +30,25 @@ exports.CARD_CREAT = async (req, res) => {
     await card.save();
 
     res.json({ card, status: "Card Saved!" });
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+exports.GET_CARDS = async (req, res) => {
+  try {
+    const cards = await Cards.find();
+    res.status(200).json(cards);
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+exports.GET_CARDS_by_ID = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const card = await Cards.findById(id);
+    res.status(200).json(card);
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
   }

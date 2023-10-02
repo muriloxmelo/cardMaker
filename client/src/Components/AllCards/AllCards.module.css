@@ -1,0 +1,11 @@
+.section {
+  display: flex;
+  padding-top: 4rem;
+  gap: 1rem;
+}
+
+.cardsImg img {
+  background-color: red;
+  height: 100%;
+  object-fit: cover;
+}

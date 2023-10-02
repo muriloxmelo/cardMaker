@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LogoHeader from "./LogoHeader";
 
 const Header = () => {
@@ -12,14 +12,19 @@ const Header = () => {
           <LogoHeader />
         </Link>
         <div className={styles.div__headerButton}>
-          <Link className={styles.headerButton} to="/create">
+          <NavLink className={styles.headerButton} to="/create">
             Create a card
-          </Link>
-          <Link className={styles.headerButton} to="cards">
+          </NavLink>
+          <NavLink className={styles.headerButton} to="/cards">
             All cards created
-          </Link>
+          </NavLink>
         </div>
-        <Link style={{ height: "40px" }} className={styles.headerButton}>
+        <NavLink
+          to="https://github.com/muriloxmelo/cardMaker"
+          target="_blank"
+          style={{ height: "40px" }}
+          className={styles.headerButton}
+        >
           <svg
             width="25"
             height="25"
@@ -34,7 +39,7 @@ const Header = () => {
               fill="currentColor"
             />
           </svg>
-        </Link>
+        </NavLink>
       </nav>
     </header>
   );

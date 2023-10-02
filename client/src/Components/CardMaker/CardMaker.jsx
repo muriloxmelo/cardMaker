@@ -4,10 +4,10 @@ import FormDoido from "../../FormDoido";
 
 const CardMaker = () => {
   return (
-    <main className="container containerCard">
+    <section className="container containerCard">
       <CardComponent />
       <FormDoido />
-    </main>
+    </section>
   );
 };
 
