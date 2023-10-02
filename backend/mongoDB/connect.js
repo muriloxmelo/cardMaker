@@ -5,7 +5,7 @@ mongoose.set("strictQuery", true);
 
 async function connect() {
   await mongoose.connect(
-    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0cardmaker.i2f0ewk.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0-cardmaker-7355.mpudbxj.mongodb.net/?retryWrites=true&w=majority`
   );
   console.log("Database connected succesfully!");
 }
