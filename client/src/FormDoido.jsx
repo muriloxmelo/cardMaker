@@ -201,7 +201,7 @@ const FormDoido = () => {
         />
       </div>
       <div className={styles.buttonDownload}>
-        <button className="button">Salvar</button>
+        <button className="button">Save</button>
 
         <button className="button download" onClick={handleDownloadClick}>
           Download
