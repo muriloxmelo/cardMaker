@@ -2,20 +2,79 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-top: 4rem;
-  gap: 2rem;
+  gap: 4rem;
+}
+
+.TextSectionBadge {
+  border-radius: 99px;
+  padding: 0.25rem 0.75rem;
+  font-size: 14px;
+  background-color: var(--sand-2);
+  color: var(--amber-9);
+  border: 1px solid var(--sand-4);
+}
+
+.TextSection h1 {
+  margin-top: 32px;
+  font-family: "Poppins";
+  font-size: 64px;
+  color: var(--sand-12);
+  line-height: 5rem;
+}
+
+.TextSectionYugioh {
+  font-family: "yugiCardDesc";
+  font-weight: 600;
+}
+
+.TextSection p {
+  margin-top: 32px;
+  font-size: 18px;
+  color: var(--sand-10);
+  line-height: 1.75rem;
+}
+
+.TextSection a:last-child {
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  height: 3rem;
+  display: inline-flex;
+  padding-right: 0.8rem;
+  padding-left: 1.6rem;
+  color: var(--sand-11);
+  border-radius: 4px;
+}
+
+.TextSection a:last-child svg {
+  margin-left: 0.5rem;
+}
+
+.TextSection a:hover,
+.TextSection a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sand-2), 0 0 0 4px var(--amber-10);
+}
+
+.fotosSection {
 }
 
 .fotos {
   position: relative;
-  left: 40%;
 }
 
 .fotos > * {
   position: absolute;
+
+  left: 30%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .foto01 {
-  position: absolute;
+  transform: translateX(0px);
+
+  opacity: 1;
 }
 
 .foto02 {

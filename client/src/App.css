@@ -147,6 +147,8 @@ input {
 
 .button {
   margin-top: 2rem;
+  display: inline-block;
+  text-decoration: none;
   background: var(--amber-10);
   font-family: "Poppins";
   font-weight: 600;
