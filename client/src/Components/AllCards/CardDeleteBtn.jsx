@@ -14,7 +14,9 @@ const CardDeleteBtn = ({ id }) => {
 
   return (
     <>
-      <button onClick={handleClick}>Deletar</button>
+      <button className="button delete" onClick={handleClick}>
+        Deletar
+      </button>
     </>
   );
 };

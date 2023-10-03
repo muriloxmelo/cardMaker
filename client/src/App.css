@@ -15,7 +15,18 @@
 }
 
 :root {
-  --colorError: hsl(359, 84.8%, 67.6%);
+  --tomato-1: hsl(10, 100%, 99.4%);
+  --tomato-2: hsl(8, 100%, 98.4%);
+  --tomato-3: hsl(8, 100%, 96.6%);
+  --tomato-4: hsl(8, 100%, 94.3%);
+  --tomato-5: hsl(8, 92.8%, 91%);
+  --tomato-6: hsl(9, 84.7%, 86.3%);
+  --tomato-7: hsl(10, 77.3%, 79.5%);
+  --tomato-8: hsl(10, 71.6%, 71%);
+  --tomato-9: hsl(10, 78%, 54%);
+  --tomato-10: hsl(10, 71.4%, 49.4%);
+  --tomato-11: hsl(10, 82%, 42%);
+  --tomato-12: hsl(8, 50%, 24%);
 
   --grass-1: hsl(146, 30%, 7.4%);
   --grass-2: hsl(138, 20.8%, 9.4%);
@@ -175,4 +186,16 @@ input {
   outline: none;
   box-shadow: 0 0 0 3px var(--sand-3), 0 0 0 4px var(--grass-10);
   background: var(--grass-10);
+}
+
+.button.delete {
+  background: var(--tomato-9);
+  color: var(--tomato-3);
+}
+
+.button.delete:hover,
+.button.delete:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sand-3), 0 0 0 4px var(--tomato-9);
+  background: var(--tomato-9);
 }

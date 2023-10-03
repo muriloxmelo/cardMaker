@@ -1,0 +1,42 @@
+.section {
+  padding-top: 4rem;
+}
+
+.div__table h1 {
+  background-color: var(--amber-9);
+  border-radius: 4px 4px 0 0;
+  color: var(--amber-12);
+  text-align: center;
+  padding: 8px;
+  border-bottom: 2px solid var(--amber-12);
+}
+
+.table {
+  width: 100%;
+  background-color: var(--sand-3);
+  border-collapse: collapse;
+  color: var(--sand-11);
+}
+
+.table th {
+  color: red;
+}
+
+.table td,
+.table th {
+  border-bottom: 1px solid var(--sand-6);
+  padding: 8px;
+}
+
+.table tr:nth-child(even),
+.table th:nth-child(even) {
+  background-color: var(--sand-4);
+}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+
+  color: var(--sand-12);
+}
