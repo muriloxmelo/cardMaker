@@ -4,9 +4,7 @@ require("dotenv").config();
 mongoose.set("strictQuery", true);
 
 async function connect() {
-  await mongoose.connect(
-    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0-cardmaker-7355.mpudbxj.mongodb.net/?retryWrites=true&w=majority`
-  );
+  await mongoose.connect(process.env.MONGODB_URI);
   console.log("Database connected succesfully!");
 }
 
