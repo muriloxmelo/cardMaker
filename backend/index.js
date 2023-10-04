@@ -7,7 +7,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 app.use(
   cors({
-    origin: ["https://card-maker-api.vercel.app"],
+    origin: ["https://card-maker-beta.vercel.app/"],
     methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
