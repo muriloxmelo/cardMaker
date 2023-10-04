@@ -125,3 +125,15 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 950px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .TextSection {
+    text-align: center;
+  }
+  .fotos > * {
+    left: 40%;
+  }
+}
