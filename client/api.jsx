@@ -19,6 +19,9 @@ export function CARDS_GET() {
     options: {
       method: "GET",
       cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
   };
 }
@@ -29,6 +32,9 @@ export function CARD_GET_ID(id) {
     options: {
       method: "GET",
       cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
   };
 }
