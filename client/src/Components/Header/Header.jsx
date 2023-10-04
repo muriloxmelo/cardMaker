@@ -43,7 +43,7 @@ const Header = () => {
         </ul>
         <li className={styles.headerButtonGit}>
           <NavLink
-            className={styles.headerButton}
+            className={styles.headerButtonGitbtn}
             to="https://github.com/muriloxmelo/cardMaker"
             target="_blank"
           >

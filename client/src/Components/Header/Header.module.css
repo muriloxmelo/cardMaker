@@ -53,13 +53,18 @@
 
 .headerButton {
   background-color: var(--sand-3);
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 4px;
   font-family: "Inter";
   font-size: 1.2rem;
   color: var(--sand-11);
-  height: 40px;
-  width: max-content;
+}
+
+.headerButtonGitbtn {
+  color: var(--sand-11);
+  width: 44px;
+  height: 44px;
+  padding: 1rem;
 }
 
 .headerButton:hover {
