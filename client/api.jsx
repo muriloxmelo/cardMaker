@@ -1,5 +1,4 @@
-export const API_URL =
-  "https://card-maker-i366oodd4-murilos-projects-d688a883.vercel.app/api/v1";
+export const API_URL = "https://card-maker-api.vercel.app//api/v1";
 
 export function CARD_POST(body) {
   return {
