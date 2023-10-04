@@ -18,9 +18,7 @@ export function CARDS_GET() {
     url: API_URL + "/cards",
     options: {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      cache: "no-store",
     },
   };
 }
@@ -30,9 +28,7 @@ export function CARD_GET_ID(id) {
     url: `${API_URL}/cards/${id}`,
     options: {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      cache: "no-store",
     },
   };
 }
