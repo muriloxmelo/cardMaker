@@ -124,6 +124,16 @@ h6 {
   overflow-wrap: break-word;
 }
 
+ul,
+li {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 button,
 input {
   display: block;
