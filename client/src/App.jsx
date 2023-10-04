@@ -7,21 +7,26 @@ import CardMaker from "./Components/CardMaker/CardMaker";
 import AllCards from "./Components/AllCards/AllCards";
 import Card from "./Components/AllCards/Card";
 import Home from "./Home";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-
-      <GlobalStorage>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="create" element={<CardMaker />} />
-          <Route path="cards" element={<AllCards />} />
-          <Route path="cards/:id" element={<Card />} />
-        </Routes>
-      </GlobalStorage>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <main className="AppBody">
+          <GlobalStorage>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="create" element={<CardMaker />} />
+              <Route path="cards" element={<AllCards />} />
+              <Route path="cards/:id" element={<Card />} />
+            </Routes>
+          </GlobalStorage>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 };
 

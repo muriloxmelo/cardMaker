@@ -58,11 +58,12 @@
 
 .fotos {
   position: relative;
+  background-color: lightblue;
 }
 
 .fotos > * {
   position: absolute;
-
+  pointer-events: none;
   left: 30%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);

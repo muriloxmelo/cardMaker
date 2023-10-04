@@ -46,6 +46,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
       <div className={styles.fotosSection}>
         <div className={styles.fotos}>
           <img className={styles.foto01} src={Homeimg1} alt="" />
