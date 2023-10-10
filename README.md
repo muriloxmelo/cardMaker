@@ -35,11 +35,9 @@ O Yu-Gi-Oh CardMaker foi criado com o intuito de desenvolver minhas habilidades 
 
 ## Paginas
 
-<picture>
   <img src="./imgs/createCard.png" />
   <img src="/imgs/allCards.png" />
   <img src="/imgs/Card.png" />
-</picture>
 
 ## Creditos
 
