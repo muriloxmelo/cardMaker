@@ -36,16 +36,15 @@
 }
 
 .select:hover option {
-  background-color: darkgreen;
+  background: var(--sand-3);
 }
 
 .option {
-  color: black;
-  background-color: red;
+  color: var(--sand-11);
 }
 
 .option:checked {
-  color: blueviolet;
+  color: var(--amber-9);
 }
 
 .select.decorated option {
