@@ -1,6 +1,5 @@
 <details>
-  <summary>Table of Contents</summary>
-  <ol>
+  <summary>Conteudos</summary>
     <li>
       <a href="#sobre-o-projeto">Sobre o projeto</a>
       <ul>
@@ -13,16 +12,13 @@
     <li>
       <a href="#creditos">Creditos</a>
     </li>
-  </ol>
 </details>
 
 ## Sobre o projeto
 
-<picture>
   <img alt="CardMaker" src="./imgs/home.png" />
-</picture>
 
-O Yu-Gi-Oh CardMaker foi criado com o intuito de desenvolver minhas habilidades em Front End e ter meu primeiro contato com o Back End. A aplicação permite o usuário alterar dinamicamente uma carta e podendo salvar no banco de dados ou fazer o
+<p>O Yu-Gi-Oh CardMaker foi criado com o intuito de desenvolver minhas habilidades em Front End e ter meu primeiro contato com o Back End. A aplicação permite o usuário alterar dinamicamente uma carta e podendo salvar no banco de dados ou fazer o download em png.</p>
 
 ### Feito com
 
@@ -31,13 +27,13 @@ O Yu-Gi-Oh CardMaker foi criado com o intuito de desenvolver minhas habilidades 
 - [DOM to image](https://www.npmjs.com/package/dom-to-image)
 - [MongoDB Atlas](https://www.mongodb.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Paginas
 
   <img src="./imgs/createCard.png" />
   <img src="/imgs/allCards.png" />
   <img src="/imgs/Card.png" />
+
+<p align="right">(<a href="#sobre-o-projeto">voltar ao topo</a>)</p>
 
 ## Creditos
 
